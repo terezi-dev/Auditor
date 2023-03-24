@@ -25,10 +25,10 @@ import android.widget.LinearLayout;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.common.collect.ImmutableSet;
 import com.google.zxing.BarcodeFormat;
@@ -513,7 +513,7 @@ public class AttestationActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(final MenuItem item) {
         final int itemId = item.getItemId();
         if (itemId == R.id.action_clear_auditee) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.action_clear_auditee) + "?")
                     .setPositiveButton(R.string.clear, (dialogInterface, i) -> {
                         executor.submit(() -> {
@@ -530,7 +530,7 @@ public class AttestationActivity extends AppCompatActivity {
                     .show();
             return true;
         } else if (itemId == R.id.action_clear_auditor) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.action_clear_auditor) + "?")
                     .setPositiveButton(R.string.clear, (dialogInterface, i) -> {
                         executor.submit(() -> {
@@ -546,7 +546,7 @@ public class AttestationActivity extends AppCompatActivity {
             startQrScanner();
             return true;
         } else if (itemId == R.id.action_disable_remote_verify) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.action_disable_remote_verify) + "?")
                     .setPositiveButton(R.string.disable, (dialogInterface, i) -> {
                         RemoteVerifyJob.executor.submit(() -> {
