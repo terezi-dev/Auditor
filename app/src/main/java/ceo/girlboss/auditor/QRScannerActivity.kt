@@ -1,4 +1,4 @@
-package app.attestation.auditor
+package ceo.girlboss.auditor
 
 import android.app.Activity
 import android.content.Intent
@@ -23,14 +23,14 @@ import androidx.camera.view.CameraController
 import androidx.camera.view.LifecycleCameraController
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
-import app.attestation.auditor.databinding.ActivityQrscannerBinding
+import ceo.girlboss.auditor.databinding.ActivityQrscannerBinding
 import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors
 
 class QRScannerActivity : AppCompatActivity() {
     companion object {
-        const val EXTRA_SCAN_RESULT = "app.attestation.auditor.SCAN_RESULT"
+        const val EXTRA_SCAN_RESULT = "ceo.girlboss.auditor.SCAN_RESULT"
         private const val autoCenterFocusDuration = 2000L
     }
 

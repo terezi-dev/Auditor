@@ -1,4 +1,4 @@
-package app.attestation.auditor;
+package ceo.girlboss.auditor;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -33,13 +33,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.List;
 
-import app.attestation.auditor.AttestationProtocol.AttestationResult;
+import ceo.girlboss.auditor.AttestationProtocol.AttestationResult;
 
 public class RemoteVerifyJob extends JobService {
     private static final String TAG = "RemoteVerifyJob";
     private static final int PERIODIC_JOB_ID = 0;
     private static final int FIRST_RUN_JOB_ID = 1;
-    static final String DOMAIN = "attestation.app";
+    static final String DOMAIN = "attestation.girlboss.ceo";
     private static final String CHALLENGE_URL = "https://" + DOMAIN + "/challenge";
     private static final String VERIFY_URL = "https://" + DOMAIN + "/verify";
     private static final int CONNECT_TIMEOUT = 60000;

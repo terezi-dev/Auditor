@@ -1,4 +1,4 @@
-package app.attestation.auditor
+package ceo.girlboss.auditor
 
 import android.util.Log
 import androidx.camera.core.ImageAnalysis.Analyzer

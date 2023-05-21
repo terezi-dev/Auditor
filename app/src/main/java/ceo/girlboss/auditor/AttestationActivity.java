@@ -1,4 +1,4 @@
-package app.attestation.auditor;
+package ceo.girlboss.auditor;
 
 import static android.graphics.Color.BLACK;
 import static android.graphics.Color.WHITE;
@@ -47,7 +47,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.DataFormatException;
 
-import app.attestation.auditor.databinding.ActivityAttestationBinding;
+import ceo.girlboss.auditor.databinding.ActivityAttestationBinding;
 
 public class AttestationActivity extends AppCompatActivity {
     private static final String TAG = "AttestationActivity";

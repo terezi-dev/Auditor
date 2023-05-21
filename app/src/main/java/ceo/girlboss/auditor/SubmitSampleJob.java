@@ -1,4 +1,4 @@
-package app.attestation.auditor;
+package ceo.girlboss.auditor;
 
 import android.annotation.TargetApi;
 import android.app.Notification;

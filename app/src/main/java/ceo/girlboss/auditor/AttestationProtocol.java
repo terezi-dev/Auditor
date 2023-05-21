@@ -1,4 +1,4 @@
-package app.attestation.auditor;
+package ceo.girlboss.auditor;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -68,11 +68,11 @@ import java.util.zip.Inflater;
 
 import javax.security.auth.x500.X500Principal;
 
-import app.attestation.auditor.attestation.Attestation;
-import app.attestation.auditor.attestation.AttestationApplicationId;
-import app.attestation.auditor.attestation.AttestationPackageInfo;
-import app.attestation.auditor.attestation.AuthorizationList;
-import app.attestation.auditor.attestation.RootOfTrust;
+import ceo.girlboss.auditor.attestation.Attestation;
+import ceo.girlboss.auditor.attestation.AttestationApplicationId;
+import ceo.girlboss.auditor.attestation.AttestationPackageInfo;
+import ceo.girlboss.auditor.attestation.AuthorizationList;
+import ceo.girlboss.auditor.attestation.RootOfTrust;
 
 import static android.security.keystore.KeyProperties.DIGEST_SHA256;
 
@@ -223,17 +223,13 @@ class AttestationProtocol {
             OS_ENFORCED_FLAGS_OEM_UNLOCK_ALLOWED |
             OS_ENFORCED_FLAGS_SYSTEM_USER;
 
-    private static final String AUDITOR_APP_PACKAGE_NAME_RELEASE = "app.attestation.auditor";
-    private static final String AUDITOR_APP_PACKAGE_NAME_PLAY = "app.attestation.auditor.play";
-    private static final String AUDITOR_APP_PACKAGE_NAME_DEBUG = "app.attestation.auditor.debug";
+    private static final String AUDITOR_APP_PACKAGE_NAME_RELEASE = "ceo.girlboss.auditor";
+    private static final String AUDITOR_APP_PACKAGE_NAME_DEBUG = "ceo.girlboss.auditor.debug";
     private static final String AUDITOR_APP_SIGNATURE_DIGEST_RELEASE =
             "990E04F0864B19F14F84E0E432F7A393F297AB105A22C1E1B10B442A4A62C42C";
-    private static final String AUDITOR_APP_SIGNATURE_DIGEST_PLAY =
-            "075335BD7B54C965222B5284D2A1FDEF1198AE45EC7B09A4934287A0E3A243C7";
     private static final String AUDITOR_APP_SIGNATURE_DIGEST_DEBUG =
             "17727D8B61D55A864936B1A7B4A2554A15151F32EBCF44CDAA6E6C3258231890";
     private static final byte AUDITOR_APP_VARIANT_RELEASE = 0;
-    private static final byte AUDITOR_APP_VARIANT_PLAY = 1;
     private static final byte AUDITOR_APP_VARIANT_DEBUG = 2;
     private static final int AUDITOR_APP_MINIMUM_VERSION = 47;
     private static final int OS_VERSION_MINIMUM = 100000;
@@ -302,43 +298,10 @@ class AttestationProtocol {
 
     private static final ImmutableMap<String, DeviceInfo> fingerprintsCustomOS = ImmutableMap
             .<String, DeviceInfo>builder()
-            // GrapheneOS
-            .put("B094E48B27C6E15661223CEFF539CF35E481DEB4E3250331E973AC2C15CAD6CD",
-                    new DeviceInfo(R.string.device_pixel_2, 2, 3, true, false, R.string.os_graphene))
-            .put("B6851E9B9C0EBB7185420BD0E79D20A84CB15AB0B018505EFFAA4A72B9D9DAC7",
-                    new DeviceInfo(R.string.device_pixel_2_xl, 2, 3, true, false, R.string.os_graphene))
-            .put("0F9A9CC8ADE73064A54A35C5509E77994E3AA37B6FB889DD53AF82C3C570C5CF",
-                    new DeviceInfo(R.string.device_pixel_3, 3, 4, false, true, R.string.os_graphene))
-            .put("06DD526EE9B1CB92AA19D9835B68B4FF1A48A3AD31D813F27C9A7D6C271E9451",
-                    new DeviceInfo(R.string.device_pixel_3_xl, 3, 4, false, true, R.string.os_graphene))
-            .put("8FF8B9B4F831114963669E04EA4F849F33F3744686A0B33B833682746645ABC8",
-                    new DeviceInfo(R.string.device_pixel_3a, 3, 4, false, true, R.string.os_graphene))
-            .put("91943FAA75DCB6392AE87DA18CA57D072BFFB80BC30F8FAFC7FFE13D76C5736E",
-                    new DeviceInfo(R.string.device_pixel_3a_xl, 3, 4, false, true, R.string.os_graphene))
-            .put("80EF268700EE42686F779A47B4A155FE1FFC2EEDF836B4803CAAB8FA61439746",
-                    new DeviceInfo(R.string.device_pixel_4, 3, 4, false, true, R.string.os_graphene))
-            .put("3F15FDCB82847FED97427CE00563B8F9FF34627070DE5FDB17ACA7849AB98CC8",
-                    new DeviceInfo(R.string.device_pixel_4_xl, 3, 4, false, true, R.string.os_graphene))
-            .put("9F2454A1657B1B5AD7F2336B39A2611F7A40B2E0DDFD0D6553A359605928DF29",
-                    new DeviceInfo(R.string.device_pixel_4a, 3, 4, false, true, R.string.os_graphene))
-            .put("DCEC2D053D3EC4F1C9BE414AA07E4D7D7CBD12040AD2F8831C994A83A0536866",
-                    new DeviceInfo(R.string.device_pixel_4a_5g, 3, 4, false, true, R.string.os_graphene))
             .put("36A99EAB7907E4FB12A70E3C41C456BCBE46C13413FBFE2436ADEE2B2B61120F",
-                    new DeviceInfo(R.string.device_pixel_5, 3, 4, false, true, R.string.os_graphene))
-            .put("0ABDDEDA03B6CE10548C95E0BEA196FAA539866F929BCDF7ECA84B4203952514",
-                    new DeviceInfo(R.string.device_pixel_5a, 3, 4, false, true, R.string.os_graphene))
+                    new DeviceInfo(R.string.device_pixel_5, 3, 4, false, true, R.string.os_girlbossceo))
             .put("F0A890375D1405E62EBFD87E8D3F475F948EF031BBF9DDD516D5F600A23677E8",
-                    new DeviceInfo(R.string.device_pixel_6, 100, 100, false, true, R.string.os_graphene))
-            .put("439B76524D94C40652CE1BF0D8243773C634D2F99BA3160D8D02AA5E29FF925C",
-                    new DeviceInfo(R.string.device_pixel_6_pro, 100, 100, false, true, R.string.os_graphene))
-            .put("08C860350A9600692D10C8512F7B8E80707757468E8FBFEEA2A870C0A83D6031",
-                    new DeviceInfo(R.string.device_pixel_6a, 100, 100, false, true, R.string.os_graphene))
-            .put("3EFE5392BE3AC38AFB894D13DE639E521675E62571A8A9B3EF9FC8C44FD17FA1",
-                    new DeviceInfo(R.string.device_pixel_7, 200, 200, false, true, R.string.os_graphene))
-            .put("BC1C0DD95664604382BB888412026422742EB333071EA0B2D19036217D49182F",
-                    new DeviceInfo(R.string.device_pixel_7_pro, 200, 200, false, true, R.string.os_graphene))
-            .put("508D75DEA10C5CBC3E7632260FC0B59F6055A8A49DD84E693B6D8899EDBB01E4",
-                    new DeviceInfo(R.string.device_pixel_7a, 200, 200, false, true, R.string.os_graphene))
+                    new DeviceInfo(R.string.device_pixel_6, 100, 100, false, true, R.string.os_girlbossceo))
             .build();
     private static final ImmutableMap<String, DeviceInfo> fingerprintsStock = ImmutableMap
             .<String, DeviceInfo>builder()
@@ -478,39 +441,10 @@ class AttestationProtocol {
 
     private static final ImmutableMap<String, DeviceInfo> fingerprintsStrongBoxCustomOS = ImmutableMap
             .<String, DeviceInfo>builder()
-            // GrapheneOS
-            .put("0F9A9CC8ADE73064A54A35C5509E77994E3AA37B6FB889DD53AF82C3C570C5CF",
-                    new DeviceInfo(R.string.device_pixel_3, 3, 4, false, true, R.string.os_graphene))
-            .put("06DD526EE9B1CB92AA19D9835B68B4FF1A48A3AD31D813F27C9A7D6C271E9451",
-                    new DeviceInfo(R.string.device_pixel_3_xl, 3, 4, false, true, R.string.os_graphene))
-            .put("73D6C63A07610404FE16A4E07DD24E41A70D331E9D3EF7BBA2D087E4761EB63A",
-                    new DeviceInfo(R.string.device_pixel_3a, 3, 4, false, true, R.string.os_graphene))
-            .put("3F36E3482E1FF82986576552CB4FD08AF09F8B09D3832314341E04C42D2919A4",
-                    new DeviceInfo(R.string.device_pixel_3a_xl, 3, 4, false, true, R.string.os_graphene))
-            .put("80EF268700EE42686F779A47B4A155FE1FFC2EEDF836B4803CAAB8FA61439746",
-                    new DeviceInfo(R.string.device_pixel_4, 3, 4, false, true, R.string.os_graphene))
-            .put("3F15FDCB82847FED97427CE00563B8F9FF34627070DE5FDB17ACA7849AB98CC8",
-                    new DeviceInfo(R.string.device_pixel_4_xl, 3, 4, false, true, R.string.os_graphene))
-            .put("9F2454A1657B1B5AD7F2336B39A2611F7A40B2E0DDFD0D6553A359605928DF29",
-                    new DeviceInfo(R.string.device_pixel_4a, 3, 4, false, true, R.string.os_graphene))
-            .put("DCEC2D053D3EC4F1C9BE414AA07E4D7D7CBD12040AD2F8831C994A83A0536866",
-                    new DeviceInfo(R.string.device_pixel_4a_5g, 4, 41, false, true, R.string.os_graphene))
             .put("36A99EAB7907E4FB12A70E3C41C456BCBE46C13413FBFE2436ADEE2B2B61120F",
-                    new DeviceInfo(R.string.device_pixel_5, 4, 41, false, true, R.string.os_graphene))
+                    new DeviceInfo(R.string.device_pixel_5, 4, 41, false, true, R.string.os_girlbossceo))
             .put("0ABDDEDA03B6CE10548C95E0BEA196FAA539866F929BCDF7ECA84B4203952514",
-                    new DeviceInfo(R.string.device_pixel_5a, 4, 41, false, true, R.string.os_graphene))
-            .put("F0A890375D1405E62EBFD87E8D3F475F948EF031BBF9DDD516D5F600A23677E8",
-                    new DeviceInfo(R.string.device_pixel_6, 100, 100, false, true, R.string.os_graphene))
-            .put("439B76524D94C40652CE1BF0D8243773C634D2F99BA3160D8D02AA5E29FF925C",
-                    new DeviceInfo(R.string.device_pixel_6_pro, 100, 100, false, true, R.string.os_graphene))
-            .put("08C860350A9600692D10C8512F7B8E80707757468E8FBFEEA2A870C0A83D6031",
-                    new DeviceInfo(R.string.device_pixel_6a, 100, 100, false, true, R.string.os_graphene))
-            .put("3EFE5392BE3AC38AFB894D13DE639E521675E62571A8A9B3EF9FC8C44FD17FA1",
-                    new DeviceInfo(R.string.device_pixel_7, 100, 100, false, true, R.string.os_graphene))
-            .put("BC1C0DD95664604382BB888412026422742EB333071EA0B2D19036217D49182F",
-                    new DeviceInfo(R.string.device_pixel_7_pro, 100, 100, false, true, R.string.os_graphene))
-            .put("508D75DEA10C5CBC3E7632260FC0B59F6055A8A49DD84E693B6D8899EDBB01E4",
-                    new DeviceInfo(R.string.device_pixel_7a, 100, 100, false, true, R.string.os_graphene))
+                    new DeviceInfo(R.string.device_pixel_6, 100, 100, false, true, R.string.os_girlbossceo))
             .build();
     private static final ImmutableMap<String, DeviceInfo> fingerprintsStrongBoxStock = ImmutableMap
             .<String, DeviceInfo>builder()
@@ -667,11 +601,6 @@ class AttestationProtocol {
                 throw new GeneralSecurityException("invalid Auditor app signing key");
             }
             appVariant = AUDITOR_APP_VARIANT_RELEASE;
-        } else if (AUDITOR_APP_PACKAGE_NAME_PLAY.equals(info.getPackageName())) {
-            if (!AUDITOR_APP_SIGNATURE_DIGEST_PLAY.equals(signatureDigest)) {
-                throw new GeneralSecurityException("invalid Auditor app signing key");
-            }
-            appVariant = AUDITOR_APP_VARIANT_PLAY;
         } else if (AUDITOR_APP_PACKAGE_NAME_DEBUG.equals(info.getPackageName())) {
             if (!BuildConfig.DEBUG) {
                 throw new GeneralSecurityException("Auditor debug builds are only trusted by other Auditor debug builds");
@@ -1160,8 +1089,6 @@ class AttestationProtocol {
         final String appVariant;
         if (verified.appVariant == AUDITOR_APP_VARIANT_RELEASE) {
             appVariant = context.getString(R.string.auditor_app_variant_release);
-        } else if (verified.appVariant == AUDITOR_APP_VARIANT_PLAY) {
-            appVariant = context.getString(R.string.auditor_app_variant_play);
         } else {
             appVariant = context.getString(R.string.auditor_app_variant_debug);
         }

@@ -1,4 +1,4 @@
-package app.attestation.auditor;
+package ceo.girlboss.auditor;
 
 import java.io.IOException;
 import java.util.Scanner;

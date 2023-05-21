@@ -12,7 +12,7 @@
  * the License.
  */
 
-package app.attestation.auditor.attestation;
+package ceo.girlboss.auditor.attestation;
 
 import androidx.annotation.NonNull;
 

@@ -1,4 +1,4 @@
-package app.attestation.auditor
+package ceo.girlboss.auditor
 
 import android.annotation.SuppressLint
 import android.content.BroadcastReceiver

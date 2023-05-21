@@ -29,22 +29,16 @@ android {
                 keyPassword = keystoreProperties["keyPassword"] as String
             }
 
-            create("play") {
-                storeFile = rootProject.file(keystoreProperties["storeFile"]!!)
-                storePassword = keystoreProperties["storePassword"] as String
-                keyAlias = keystoreProperties["uploadKeyAlias"] as String
-                keyPassword = keystoreProperties["uploadKeyPassword"] as String
-            }
         }
     }
 
     compileSdk = 33
     buildToolsVersion = "33.0.2"
 
-    namespace = "app.attestation.auditor"
+    namespace = "ceo.girlboss.auditor"
 
     defaultConfig {
-        applicationId = "app.attestation.auditor"
+        applicationId = "ceo.girlboss.auditor"
         minSdk = 29
         targetSdk = 33
         versionCode = 71
@@ -59,14 +53,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             if (useKeystoreProperties) {
                 signingConfig = signingConfigs.getByName("release")
-            }
-        }
-
-        create("play") {
-            initWith(getByName("release"))
-            applicationIdSuffix = ".play"
-            if (useKeystoreProperties) {
-                signingConfig = signingConfigs.getByName("play")
             }
         }
 

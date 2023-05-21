@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package app.attestation.auditor.attestation;
+package ceo.girlboss.auditor.attestation;
 
 import com.google.common.collect.ImmutableSet;
 
